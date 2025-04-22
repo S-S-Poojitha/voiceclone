@@ -1,0 +1,18 @@
+# 1. Install Python 3.10 and related tools (if not already)
+sudo apt update
+sudo apt install -y python3.10 python3.10-venv python3.10-dev
+
+# 2. Create a virtual environment called xtts-env
+python3.10 -m venv xtts-env
+
+# 3. Activate the environment
+source xtts-env/bin/activate
+
+# 4. Upgrade pip and packaging tools
+pip install --upgrade pip setuptools wheel
+
+# 5. Install XTTS (Coqui TTS) directly from GitHub
+pip install git+https://github.com/coqui-ai/TTS.git
+
+# 6. Install compatible CPU versions of PyTorch and related libs
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cpu
